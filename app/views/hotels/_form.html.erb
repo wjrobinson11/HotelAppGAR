@@ -27,6 +27,12 @@
     ...
   </div>
 
+  <%= form.fields_for :room_types do |f| %>
+    <div class="form-group">
+      <%= render 'room_type_fields', f:  f %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <% if hotel.persisted? %>
       <div class="float-right">

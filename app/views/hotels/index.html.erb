@@ -25,12 +25,19 @@
     </thead>
 
     <tbody>
-      <% @hotels.each do |hotel| %>
+    <% @hotels.each do |hotel| %>
+      <% if  hotel.room_types.count > 0 %>
+        <%= content_tag :tr, id: dom_id(hotel), class: dom_class(hotel) do %>
+          <td><%= current_user ? link_to(hotel.name, hotel) : hotel.name %></td>
+          <td><%= hotel.location %></td>
+        <% end %>
+      <% elsif current_user  %>
         <%= content_tag :tr, id: dom_id(hotel), class: dom_class(hotel) do %>
           <td><%= current_user ? link_to(hotel.name, hotel) : hotel.name %></td>
           <td><%= hotel.location %></td>
         <% end %>
       <% end %>
+    <% end %>
     </tbody>
   </table>
 </div>
