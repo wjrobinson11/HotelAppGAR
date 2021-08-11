@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 2020_11_07_001756) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
   end
 
+  create_table "room_types", force: :cascade do |t|
+    t.string "name"
+    t.boolean "available"
+    t.integer "hotel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_room_types_on_hotel_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider"
