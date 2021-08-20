@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("local-time").start()
+require('./nested-forms/addFields')
+require('./nested-forms/removeFields')
+
 
 window.Rails = Rails
 

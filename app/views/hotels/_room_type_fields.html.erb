@@ -1,0 +1,15 @@
+<div class="nested-fields">
+    <%= f.hidden_field :_destroy %>
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group float-left">
+        <%= f.label :availblity %>
+        <%= f.check_box :available, class: 'form-control' %>
+    </div>
+    <br><br><br><br><br><br>
+    <div class="form-group">
+        <%= link_to "Remove", '#', class: "remove_fields" %>
+    </div>
+</div>

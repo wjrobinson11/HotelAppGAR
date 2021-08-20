@@ -26,9 +26,18 @@
 
     <tbody>
       <% @hotels.each do |hotel| %>
-        <%= content_tag :tr, id: dom_id(hotel), class: dom_class(hotel) do %>
-          <td><%= current_user ? link_to(hotel.name, hotel) : hotel.name %></td>
-          <td><%= hotel.location %></td>
+        <% if current_user %>
+          <%= content_tag :tr, id: dom_id(hotel), class: dom_class(hotel) do %>
+            <td><%= link_to(hotel.name, hotel) %></td>
+            <td><%= hotel.location %></td>
+          <% end %>
+        <% else %>
+          <% if hotel.room_types.present? %>
+            <%= content_tag :tr, id: dom_id(hotel), class: dom_class(hotel) do %>
+              <td><%= hotel.name %></td>
+              <td><%= hotel.location %></td>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>

@@ -1,0 +1,3 @@
+<%= form_with(model: @hotel) do |form| %>
+	$('.room_types').append("<%= escape_javascript render(:partial => 'room_type_form', :locals => { form: form }) %>")
+<% end %>
