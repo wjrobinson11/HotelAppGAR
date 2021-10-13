@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_001756) do
+ActiveRecord::Schema.define(version: 2021_10_12_032320) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2020_11_07_001756) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
+  end
+
+  create_table "room_types", force: :cascade do |t|
+    t.string "name"
+    t.boolean "available"
+    t.integer "hotel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_room_types_on_hotel_id"
   end
 
   create_table "services", force: :cascade do |t|
