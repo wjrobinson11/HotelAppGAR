@@ -4,7 +4,11 @@ class HotelsController < ApplicationController
   # GET /hotels
   # GET /hotels.json
   def index
-    @hotels = Hotel.all
+    @hotels = if current_user
+                Hotel.all
+              else
+                Hotel.includes(:room_types).where(room_types: {available: true})
+              end
   end
 
   # GET /hotels/1
