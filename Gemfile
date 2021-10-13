@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do
