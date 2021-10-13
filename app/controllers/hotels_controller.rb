@@ -15,10 +15,12 @@ class HotelsController < ApplicationController
   # GET /hotels/new
   def new
     @hotel = Hotel.new
+    @hotel.room_types.presence || @hotel.room_types.build
   end
 
   # GET /hotels/1/edit
   def edit
+    @hotel.room_types.presence || @hotel.room_types.build
   end
 
   # POST /hotels
@@ -69,6 +71,6 @@ class HotelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hotel_params
-      params.require(:hotel).permit(:name, :location, room_types_attributes: [:name,:available])
+      params.require(:hotel).permit(:name, :location, room_types_attributes: [:name,:available, :hotel_id, :id])
     end
 end

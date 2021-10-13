@@ -27,6 +27,19 @@
     ...
   </div>
 
+  <%= form.fields_for :room_types do |room_type_form| %>
+    <div class="form-group">
+      <%= room_type_form.label 'Room type' %>
+      <%= room_type_form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= room_type_form.label 'Is room available', class: "control-label" %>
+      <%= room_type_form.check_box :available %>
+    </div>
+    <%= room_type_form.hidden_field :hotel_id %>
+  <% end %>
+
   <div class="form-group">
     <% if hotel.persisted? %>
       <div class="float-right">

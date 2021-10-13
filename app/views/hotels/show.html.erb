@@ -15,4 +15,12 @@
   <dt>Location:</dt>
   <dd><%= @hotel.location %></dd>
 
+  <% @hotel.room_types.each do |room_type| %>
+    <dt>Room type:</dt>
+    <dd><%= room_type.name %></dd>
+
+    <dt>Room available:</dt>
+    <dd><%= room_type.available ? 'Yes' : 'No' %></dd>
+  <% end %>
+
 </dl>
